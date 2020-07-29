@@ -153,32 +153,32 @@ gen (primitivetypes pt)
 add_executable (avrogencpp impl/avrogencpp.cc)
 target_link_libraries (avrogencpp avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
 
-enable_testing()
+#enable_testing()
 
-macro (unittest name)
-    add_executable (${name} test/${name}.cc)
-    target_link_libraries (${name} avrocpp ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
-    add_test (NAME ${name} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-        COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${name})
-endmacro (unittest)
+#macro (unittest name)
+#    add_executable (${name} test/${name}.cc)
+#    target_link_libraries (${name} avrocpp ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+#    add_test (NAME ${name} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+#        COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${name})
+#endmacro (unittest)
 
-unittest (buffertest)
-unittest (unittest)
-unittest (SchemaTests)
-unittest (LargeSchemaTests)
-unittest (CodecTests)
-unittest (StreamTests)
-unittest (SpecificTests)
-unittest (DataFileTests)
-unittest (JsonTests)
-unittest (AvrogencppTests)
-unittest (CompilerTests)
+#unittest (buffertest)
+#unittest (unittest)
+#unittest (SchemaTests)
+#unittest (LargeSchemaTests)
+#unittest (CodecTests)
+#unittest (StreamTests)
+#unittest (SpecificTests)
+#unittest (DataFileTests)
+#unittest (JsonTests)
+#unittest (AvrogencppTests)
+#unittest (CompilerTests)
 
-add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
-    tweet_hh
-    union_array_union_hh union_map_union_hh union_conflict_hh
-    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
-    primitivetypes_hh empty_record_hh)
+#add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
+#    tweet_hh
+#    union_array_union_hh union_map_union_hh union_conflict_hh
+#    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
+#    primitivetypes_hh empty_record_hh)
 
 include (InstallRequiredSystemLibraries)
 
